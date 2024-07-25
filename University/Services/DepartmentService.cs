@@ -1,6 +1,7 @@
 ﻿using Application.DataTransferModels.ResponseModels;
 using Dapper;
 using Microsoft.Data.SqlClient;
+using System.Data;
 using University.DataTransferModels;
 using University.Interfaces;
 using University.Model;
@@ -10,9 +11,12 @@ namespace University.Services
     public class DepartmentService : IDepartment
     {
         private readonly IConfiguration _configuration;
+        private readonly SqlConnection _connection;
+
         public DepartmentService(IConfiguration configuration)
         {
             _configuration = configuration;
+            _connection = new SqlConnection(configuration.GetConnectionString("UniversityContext"));
         }
 
         public async Task<ResponseVM> AssignHeadRole(AssignHeadRoleVM model)
@@ -132,6 +136,18 @@ namespace University.Services
             response.responseCode = 200;
             response.data = departments;
             return response;
+        }
+
+        public async Task<ResponseVM> GetTeachersCount()
+        {
+            ResponseVM response = ResponseVM.Instance;
+            string connectionstring = _configuration.GetConnectionString("UniversityContext");
+          
+            var s = await _connection.QueryAsync<dynamic>("sp_DepartmentsTeacher", commandType: CommandType.StoredProcedure);
+
+            response.responseCode = 200;
+            response.data = s;
+            return response; ;
         }
 
         public async Task<ResponseVM> UpdateDepartment(UpdateDepartmentVM model)

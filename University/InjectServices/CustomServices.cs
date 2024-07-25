@@ -11,6 +11,8 @@ namespace University.InjectServices
             services.AddScoped<IStudent, StudentService>();
             services.AddScoped<ITeacher, TeacherService>();
             services.AddScoped<IUniversity, UniversityServices>();
+            services.AddScoped<IClassesSchedule, ClassScheduleServices>();
+            
         }
     }
 }

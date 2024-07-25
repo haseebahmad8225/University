@@ -1,4 +1,5 @@
 ﻿using Application.DataTransferModels.ResponseModels;
+using Microsoft.AspNetCore.Mvc;
 using University.DataTransferModels;
 
 namespace University.Interfaces
@@ -17,5 +18,6 @@ namespace University.Interfaces
         Task<ResponseVM> GetAllTeachers(long DepartmentId);
 
         Task<ResponseVM> AssignHeadRole(AssignHeadRoleVM model);
+        Task<ResponseVM> GetTeachersCount();
     }
 }

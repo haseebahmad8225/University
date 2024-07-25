@@ -16,5 +16,6 @@ namespace UniversityService.Data
         public DbSet<Department> DepartmentDetails { get; set; }
         public DbSet<TeacherRoles> TeacherRoleDetails { get; set; }    
         public DbSet<TeacherStudentAsign> AssignedDetails { get; set; }
+        public DbSet<ClassesSchedules> ClassesSchedules { get; set; }
     }
 }

@@ -75,5 +75,11 @@ namespace University.Controllers
             var result = await _departmentService.AssignHeadRole(model);
             return Ok(result);
         }
+        [HttpGet("GetTeachersCount")]
+        public async Task<IActionResult> GetTeachersCount()
+        {
+            var result = await _departmentService.GetTeachersCount();
+            return Ok(result);
+        }
     }
 }
