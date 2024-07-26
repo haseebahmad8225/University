@@ -1,21 +1,20 @@
-﻿using Microsoft.EntityFrameworkCore.Storage;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace University.Model
 {
-    public class ClassesSchedules
+    public class TeacherSchedule
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long ClassId { get; set; }
-        public long DepartmentId { get; set; }
+        public long Id { get; set; }
         public long TeacherId { get; set; }
+        public long DepartmentId { get; set; }
         [Column(TypeName = "NVARCHAR(50)")]
         public string Subject { get; set; } = "";
         [Column(TypeName = "NVARCHAR(50)")]
-        public string ClassStartTime { get; set; } = "";
+        public string Shift { get; set; } = "";
         [Column(TypeName = "NVARCHAR(50)")]
-        public string ClassEndTime { get; set; } = ""; 
+        public string Timing { get; set; } = "";
     }
 }

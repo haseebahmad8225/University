@@ -51,7 +51,7 @@ namespace University.Services
                 return response;
             }
             string query = $"Insert into TeacherDetails (FirstName , LastName, Subject , JoiningDate, DepartmentId, Phone, CNIC , Email, City , State, Country) Values (@FirstName , @LastName, @Subject , @JoiningDate, @DepartmentId, @Phone, @CNIC , @Email, @City , @State, @Country)";
-            var parameter = new {FirstName = model.FirstName, LastName = model.LastName, Subject  = model.Subject, JoiningDate = model.JoiningDate, DepartmentId = model.DepartmentId , Phone = model.Phone, CNIC = model.CNIC, Email = model.Email, City = model.City, State = model.State, Country = model.Country };
+            var parameter = new {FirstName = model.FirstName, LastName = model.LastName, Subject  = model.Subject, JoiningDate = model.JoiningDate, DepartmentId = model.DepartmentId ,Phone = model.Phone, CNIC = model.CNIC, Email = model.Email, City = model.City, State = model.State, Country = model.Country };
             int result = await con.ExecuteAsync(query, parameter);
             if (result == 0)
             {

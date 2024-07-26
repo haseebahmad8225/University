@@ -104,7 +104,7 @@ namespace University.Services
         {
             ResponseVM response = ResponseVM.Instance;
             string connectionstring = _configuration.GetConnectionString("UniversityContext");
-            string query = $"Update ClassesSchedules Set DepartmentId = @DepartmentId, TeacherId = @TeacherId, Subject = @Subject, ClassStartTime = @ClassStartTime, ClassEndTime = @ClassEndTime WHERE ClassId = @ClassId";
+            string query = $"Update ClassesSchedules Set DepartmentId = @DepartmentId, TeacherId = @TeacherId, Subject = @Subject,ClassStartTime = @ClassStartTime, ClassEndTime = @ClassEndTime WHERE ClassId = @ClassId";
             using var con = new SqlConnection(connectionstring);
             con.Open();
             var parameter = new { DepartmentId = model.DepartmentId, TeacherId = model.teacherId, Subject = model.Subject, ClassStartTime = model.ClassStartTime, ClassEndTime = model.ClassEndTime, ClassId = model.ClassId };

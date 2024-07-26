@@ -23,7 +23,7 @@ namespace University.Model
         [Column(TypeName = "NVARCHAR(50)")] 
         public string JoiningDate { get; set; } = "";
 
-        public long DepartmentId { get; set; } 
+        public long DepartmentId { get; set; }
 
         [Column(TypeName = "NVARCHAR(50)")]
         public string Phone { get; set; } = "";

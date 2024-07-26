@@ -12,7 +12,7 @@ namespace University.InjectServices
             services.AddScoped<ITeacher, TeacherService>();
             services.AddScoped<IUniversity, UniversityServices>();
             services.AddScoped<IClassesSchedule, ClassScheduleServices>();
-            
+            services.AddScoped<ITeacherSchedule, TeacherScheduleServices>();
         }
     }
 }

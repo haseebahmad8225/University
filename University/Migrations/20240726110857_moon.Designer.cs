@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UniversityService.Data;
 
@@ -10,9 +11,10 @@ using UniversityService.Data;
 namespace University.Migrations
 {
     [DbContext(typeof(UniversityContext))]
-    partial class UniversityContextModelSnapshot : ModelSnapshot
+    [Migration("20240726110857_moon")]
+    partial class moon
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -230,37 +232,6 @@ namespace University.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TeacherRoleDetails");
-                });
-
-            modelBuilder.Entity("University.Model.TeacherSchedule", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
-
-                    b.Property<long>("DepartmentId")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Shift")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR(50)");
-
-                    b.Property<string>("Subject")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR(50)");
-
-                    b.Property<long>("TeacherId")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Timing")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TeacherClassesSchedule");
                 });
 
             modelBuilder.Entity("University.Model.TeacherStudentAsign", b =>
