@@ -9,6 +9,6 @@ namespace University.Interfaces
         Task<ResponseVM> UpdateTeacherSchedule(UpdateTeacherScheduleVM model);
         Task<ResponseVM> GetTeacherSchedule();
         Task<ResponseVM> DeleteTeacherSchedule(long Id);
-        Task<ResponseVM> GetAllSchedule();
+        Task<ResponseVM> GetAllSchedule(long TeacherId);
     }
 }

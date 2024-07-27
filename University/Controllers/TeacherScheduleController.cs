@@ -48,9 +48,9 @@ namespace University.Controllers
             return Ok(result);
         }
         [HttpGet("GetAllSchedule")]
-        public async Task<IActionResult> GetAllSchedule()
+        public async Task<IActionResult> GetAllSchedule(long TeacherId)
         {
-            var result = await _teacherScheduleServices.GetAllSchedule();
+            var result = await _teacherScheduleServices.GetAllSchedule(TeacherId);
             return Ok(result);
         }
     }

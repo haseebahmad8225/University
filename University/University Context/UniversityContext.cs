@@ -18,6 +18,5 @@ namespace UniversityService.Data
         public DbSet<TeacherStudentAsign> AssignedDetails { get; set; }
         public DbSet<ClassesSchedules> ClassesSchedules { get; set; }
         public DbSet<TeacherSchedule> TeacherClassesSchedule { get; set; }
-
     }
 }

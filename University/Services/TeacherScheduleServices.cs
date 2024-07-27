@@ -57,11 +57,13 @@ namespace University.Services
             return response;
         }
 
-        public async Task<ResponseVM> GetAllSchedule()
+        public async Task<ResponseVM> GetAllSchedule(long TeacherId)
         {
             ResponseVM response = ResponseVM.Instance;
             string connectionstring = _configuration.GetConnectionString("UniversityContext");
-            var s = await _connection.QueryAsync<dynamic>("sp_AllSchedule", commandType: CommandType.StoredProcedure);
+            var parameters = new DynamicParameters();
+            parameters.Add("@TeacherId", TeacherId);
+            var s = await _connection.QueryAsync<dynamic>("sp_AllSchedule",parameters, commandType: CommandType.StoredProcedure);
             response.responseCode = 200;
             response.data = s;
             return response;
@@ -71,7 +73,7 @@ namespace University.Services
         {
             ResponseVM response = ResponseVM.Instance;
             string connectionstring = _configuration.GetConnectionString("UniversityContext");
-            string query = $"SELECT * FROM TeacherClassesSchedule";
+            string query = $"SELECT * FROM TeacherClassesSchedule ";
             using var con = new SqlConnection(connectionstring);
             con.Open();
             IEnumerable<TeacherSchedule> schedule = await con.QueryAsync<TeacherSchedule>(query);

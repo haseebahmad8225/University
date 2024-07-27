@@ -13,7 +13,5 @@ namespace University.Model
         [Column(TypeName = "NVARCHAR(50)")]
         public string Location { get; set; } = "";
         public int EstablishedYear { get; set; }
-
-
     }
 }

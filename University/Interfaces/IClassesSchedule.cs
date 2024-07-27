@@ -15,5 +15,6 @@ namespace University.Interfaces
         Task<ResponseVM> GetTeacherDepartment();
 
         Task<ResponseVM> GetIndividualTeacher(long TeacherId);
+        Task<ResponseVM> GetIndividualSchedule(long ClassId);
     }
 }

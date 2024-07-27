@@ -50,5 +50,11 @@ namespace University.Controllers
             var result = await _ClassesScheduleServices.GetIndividualTeacher(TeacherID);
             return Ok(result);
         }
+        [HttpGet("GetIndividualschedule")]
+        public async Task<IActionResult> GetIndividualSchedule(long ClassId)
+        {
+            var result = await _ClassesScheduleServices.GetIndividualSchedule(ClassId);
+            return Ok(result);
+        }
     }
 }

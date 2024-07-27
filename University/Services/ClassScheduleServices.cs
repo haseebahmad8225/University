@@ -4,6 +4,7 @@ using Microsoft.Data.SqlClient;
 using System.Data;
 using University.DataTransferModels;
 using University.Interfaces;
+using University.Migrations;
 using University.Model;
 
 namespace University.Services
@@ -74,6 +75,19 @@ namespace University.Services
             }
             response.responseCode=200;
             response.data = schedules;
+            return response;
+        }
+
+        public async Task<ResponseVM> GetIndividualSchedule(long ClassId)
+        {
+            ResponseVM response = ResponseVM.Instance;
+            string connectionstring = _configuration.GetConnectionString("UniversityContext");
+            var parameters = new DynamicParameters();
+            parameters.Add("@ClassId", ClassId);
+            var s = await _connection.QueryAsync<dynamic>("sp_GetClassSchedule", parameters, commandType: CommandType.StoredProcedure);
+
+            response.responseCode = 200;
+            response.data = s;
             return response;
         }
 
