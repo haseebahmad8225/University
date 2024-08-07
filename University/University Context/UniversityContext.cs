@@ -5,7 +5,7 @@ namespace UniversityService.Data
 {
     public class UniversityContext : DbContext
     {
-        public UniversityContext (DbContextOptions<UniversityContext> options)
+        public UniversityContext(DbContextOptions<UniversityContext> options)
           : base(options)
         {
 
@@ -18,5 +18,8 @@ namespace UniversityService.Data
         public DbSet<TeacherStudentAsign> AssignedDetails { get; set; }
         public DbSet<ClassesSchedules> ClassesSchedules { get; set; }
         public DbSet<TeacherSchedule> TeacherClassesSchedule { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Login> UserLogin { get; set; }
+        public DbSet<SignUp> UserSignUp { get; set; }
     }
 }
