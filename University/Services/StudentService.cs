@@ -42,7 +42,7 @@ namespace University.Services
         {
             ResponseVM response = ResponseVM.Instance;
             string connectionstring = _configuration.GetConnectionString("UniversityContext");
-            string query = $" Delate from StudentDetails where StudentId = @StudentId";
+            string query = $" Delete from StudentDetails where StudentId = @StudentId";
             using var con = new SqlConnection( connectionstring) ;
             con.Open();
             var parameter = new { StudentId = Studentid };
