@@ -5,11 +5,10 @@ namespace UniversityService.Data
 {
     public class UniversityContext : DbContext
     {
-        public UniversityContext(DbContextOptions<UniversityContext> options)
-          : base(options)
+        public UniversityContext(DbContextOptions<UniversityContext> options) : base(options)
         {
-
         }
+
         public DbSet<UniversityDetails> UniversityDetails { get; set; }
         public DbSet<Student> StudentDetails { get; set; }
         public DbSet<Teacher> TeacherDetails { get; set; }
